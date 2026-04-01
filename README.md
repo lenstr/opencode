@@ -1,4 +1,4 @@
-> **Note:** This is a personal fork of [opencode](https://github.com/sst/opencode) with minor tweaks nobody asked for. Use the original.
+> **Note:** This is a personal fork of [opencode](https://github.com/anomalyco/opencode) with minor tweaks nobody asked for. Use the original.
 >
 > ```bash
 > bunx -y @lenstr/lencode
