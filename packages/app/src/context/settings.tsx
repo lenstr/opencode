@@ -32,6 +32,7 @@ export interface Settings {
   }
   appearance: {
     fontSize: number
+    lineHeight: number
     mono: string
     sans: string
   }
@@ -98,6 +99,7 @@ const defaultSettings: Settings = {
   },
   appearance: {
     fontSize: 14,
+    lineHeight: 150,
     mono: "",
     sans: "",
   },
@@ -139,6 +141,11 @@ export const { use: useSettings, provider: SettingsProvider } = createSimpleCont
       root.style.setProperty("--font-size-small", `${size - 1}px`)
       root.style.setProperty("--font-size-large", `${size + 2}px`)
       root.style.setProperty("--font-size-x-large", `${size + 6}px`)
+      const lh = store.appearance?.lineHeight ?? defaultSettings.appearance.lineHeight
+      root.style.setProperty("--line-height-normal", `${lh - 20}%`)
+      root.style.setProperty("--line-height-large", `${lh}%`)
+      root.style.setProperty("--line-height-x-large", `${lh + 30}%`)
+      root.style.setProperty("--line-height-2x-large", `${lh + 50}%`)
     })
 
     return {
@@ -191,6 +198,10 @@ export const { use: useSettings, provider: SettingsProvider } = createSimpleCont
         fontSize: withFallback(() => store.appearance?.fontSize, defaultSettings.appearance.fontSize),
         setFontSize(value: number) {
           setStore("appearance", "fontSize", value)
+        },
+        lineHeight: withFallback(() => store.appearance?.lineHeight, defaultSettings.appearance.lineHeight),
+        setLineHeight(value: number) {
+          setStore("appearance", "lineHeight", value)
         },
         font: withFallback(() => store.appearance?.mono, defaultSettings.appearance.mono),
         setFont(value: string) {

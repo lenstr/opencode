@@ -164,6 +164,14 @@ export const SettingsGeneral: Component = () => {
     })),
   )
 
+  const heights = [100, 110, 120, 130, 140, 150, 160, 180, 200]
+  const lineHeightOptions = createMemo(() =>
+    heights.map((h) => ({
+      value: h,
+      label: `${h}%`,
+    })),
+  )
+
   const soundSelectProps = (
     enabled: () => boolean,
     current: () => string,
@@ -340,6 +348,23 @@ export const SettingsGeneral: Component = () => {
             value={(o) => String(o.value)}
             label={(o) => o.label}
             onSelect={(option) => option && settings.appearance.setFontSize(option.value)}
+            variant="secondary"
+            size="small"
+            triggerVariant="settings"
+          />
+        </SettingsRow>
+
+        <SettingsRow
+          title={language.t("settings.general.row.lineHeight.title")}
+          description={language.t("settings.general.row.lineHeight.description")}
+        >
+          <Select
+            data-action="settings-line-height"
+            options={lineHeightOptions()}
+            current={lineHeightOptions().find((o) => o.value === settings.appearance.lineHeight())}
+            value={(o) => String(o.value)}
+            label={(o) => o.label}
+            onSelect={(option) => option && settings.appearance.setLineHeight(option.value)}
             variant="secondary"
             size="small"
             triggerVariant="settings"

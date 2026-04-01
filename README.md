@@ -9,6 +9,7 @@ bunx -y @lenstr/lencode
 ## Tweaks
 
 - **Font size setting** — adjustable base font size in Settings → Appearance
+- **Line height setting** — adjustable line height in Settings → Appearance
 
 ## Sync with upstream
 

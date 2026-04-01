@@ -638,6 +638,8 @@ export const dict = {
   "settings.general.row.theme.description": "Настройте оформление OpenCode.",
   "settings.general.row.fontSize.title": "Размер шрифта",
   "settings.general.row.fontSize.description": "Настройте базовый размер шрифта, используемый во всем интерфейсе",
+  "settings.general.row.lineHeight.title": "Межстрочный интервал",
+  "settings.general.row.lineHeight.description": "Настройте межстрочный интервал, используемый во всем интерфейсе",
   "settings.general.row.font.title": "Шрифт кода",
   "settings.general.row.font.description": "Настройте шрифт, используемый в блоках кода и терминалах",
   "settings.general.row.uiFont.title": "Шрифт интерфейса",
