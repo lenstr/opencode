@@ -134,6 +134,11 @@ export const { use: useSettings, provider: SettingsProvider } = createSimpleCont
       const root = document.documentElement
       root.style.setProperty("--font-family-mono", monoFontFamily(store.appearance?.mono))
       root.style.setProperty("--font-family-sans", sansFontFamily(store.appearance?.sans))
+      const size = store.appearance?.fontSize ?? defaultSettings.appearance.fontSize
+      root.style.setProperty("--font-size-base", `${size}px`)
+      root.style.setProperty("--font-size-small", `${size - 1}px`)
+      root.style.setProperty("--font-size-large", `${size + 2}px`)
+      root.style.setProperty("--font-size-x-large", `${size + 6}px`)
     })
 
     return {

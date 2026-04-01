@@ -156,6 +156,14 @@ export const SettingsGeneral: Component = () => {
   const mono = () => monoInput(settings.appearance.font())
   const sans = () => sansInput(settings.appearance.uiFont())
 
+  const fontSizes = [12, 13, 14, 15, 16, 18, 20]
+  const fontSizeOptions = createMemo(() =>
+    fontSizes.map((size) => ({
+      value: size,
+      label: `${size}px`,
+    })),
+  )
+
   const soundSelectProps = (
     enabled: () => boolean,
     current: () => string,
@@ -315,6 +323,23 @@ export const SettingsGeneral: Component = () => {
               theme.previewTheme(option.id)
               return () => theme.cancelPreview()
             }}
+            variant="secondary"
+            size="small"
+            triggerVariant="settings"
+          />
+        </SettingsRow>
+
+        <SettingsRow
+          title={language.t("settings.general.row.fontSize.title")}
+          description={language.t("settings.general.row.fontSize.description")}
+        >
+          <Select
+            data-action="settings-font-size"
+            options={fontSizeOptions()}
+            current={fontSizeOptions().find((o) => o.value === settings.appearance.fontSize())}
+            value={(o) => String(o.value)}
+            label={(o) => o.label}
+            onSelect={(option) => option && settings.appearance.setFontSize(option.value)}
             variant="secondary"
             size="small"
             triggerVariant="settings"
